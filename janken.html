@@ -6,44 +6,23 @@
     <title>じゃんけんチャレンジ</title>
 </head>
 <h1>じゃんけんチャレンジ</h1>
-<script src="janken.js">
-   var DecisionList = new Array(
-        "stone.JPG",
-        "scissors.JPG",
-        "paper.JPG");
-    var count = -1;
-    imgTimer();
-
-    function imgTimer(){
-        count++;
-        if (count == DecisionList.length){
-         count = 0
-        };
-        document.IMAGE.src = DecisionList[count];
-        };
-	//次のタイマー呼びだし
-	setTimeout("imgTimer()",1000);
-
-
-</script>
-<body onload="imgTimer()">
-
-    <!-- <form action="#" name="profile" method="get"> -->
+<script src="janken.js"></script>
+<body>
         <p>名前を入力してください:
         <input type ="text" value="" id="PlayerName">
         <button type ="button" value="挑戦する" onclick="setUserName();">挑戦する</button></p>
         <h2 id = "helloGuest" text = "" value = "挑戦者求ム"></h2>
         <p>あなたの手</p>
-        <input type="image" src="stone.JPG" alt="stone"name="stone">
-        <input type="image" src="scissors.JPG" alt="scissors" name="scissors">
-        <input type="image" src="paper.JPG" alt="paper" name="paper">    　　　　　　　　　　　　
-        <!-- <input type="image" src="stone.JPG" name = "enemyDecision" alt="stone"name="stone"> -->
-        <img src="0.JPG"  id="IMAGE">
-
+        <input type="image" src="0.JPG" alt="stone"value="0" onclick="selectStone()">
+        <input type="image" src="1.JPG" alt="scissors" value="1" onclick="selectScissors()">
+        <input type="image" src="2.JPG" alt="paper" value="2" onclick="selectPaper()">    　　　　　　　　　　　　
         
+        <form name="FORM">
+            <p id=msg>相手の手</p>
+            </form>
+            <img src="0.JPG" name="IMAGE"><br>
 
-    <!-- </form> -->
-    <h1>あなたの勝ちです</h1>
-    <input type="reset" value="再挑戦する">
+    <h1 id = "resultMsg" text="" value = "">どちらが勝つのか・・・？</h1>
+    <input type="reset" value="再挑戦する" onclick="reset()">
 </body>
 </html>
